@@ -1,0 +1,169 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dh_book_lib
+# 
+# Translators:
+# vit_odoogen
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-16 09:00+0000\n"
+"PO-Revision-Date: 2022-09-22 05:44+0000\n"
+"Last-Translator: vit_odoogen, 2023\n"
+"Language-Team: Bahasa Indonesia (https://www.transifex.com/odoo/teams/41243/af/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: id\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+
+#. module: dh_bk_lib.book_order
+#. odoo-python
+#: code:addons/dh_book_lib/models/dh_bk_lib.book_order.py:0
+#, python-format
+# model:ir.model.fields,field_description:name
+msgid "Name"
+msgstr "Name"
+
+# model:ir.model.fields,field_description:note
+msgid "Note"
+msgstr "Note"
+
+# model:ir.model.fields,field_description:description
+msgid "Description"
+msgstr "Description"
+
+# model:ir.model.fields,field_description:stage_is_draft
+msgid "Stage Is Draft"
+msgstr "Stage Is Draft"
+
+# model:ir.model.fields,field_description:approved
+msgid "Approved"
+msgstr "Approved"
+
+
+#. module: dh_bk_lib.borrower
+#. odoo-python
+#: code:addons/dh_book_lib/models/dh_bk_lib.borrower.py:0
+#, python-format
+# model:ir.model.fields,field_description:name
+msgid "Name"
+msgstr "Name"
+
+# model:ir.model.fields,field_description:address
+msgid "Address"
+msgstr "Address"
+
+# model:ir.model.fields,field_description:note
+msgid "Note"
+msgstr "Note"
+
+
+#. module: dh_bk_lib.approver
+#. odoo-python
+#: code:addons/dh_book_lib/models/dh_bk_lib.approver.py:0
+#, python-format
+# model:ir.model.fields,field_description:name
+msgid "Name"
+msgstr "Name"
+
+# model:ir.model.fields,field_description:note
+msgid "Note"
+msgstr "Note"
+
+
+#. module: dh_bk_lib.book_status
+#. odoo-python
+#: code:addons/dh_book_lib/models/dh_bk_lib.book_status.py:0
+#, python-format
+# model:ir.model.fields,field_description:name
+msgid "Name"
+msgstr "Name"
+
+# model:ir.model.fields,field_description:note
+msgid "Note"
+msgstr "Note"
+
+
+#. module: dh_bk_lib.stage
+#. odoo-python
+#: code:addons/dh_book_lib/models/dh_bk_lib.stage.py:0
+#, python-format
+# model:ir.model.fields,field_description:name
+msgid "Name"
+msgstr "Name"
+
+# model:ir.model.fields,field_description:fold
+msgid "Fold"
+msgstr "Fold"
+
+# model:ir.model.fields,field_description:draft
+msgid "Draft"
+msgstr "Draft"
+
+# model:ir.model.fields,field_description:on_progress
+msgid "On Progress"
+msgstr "On Progress"
+
+# model:ir.model.fields,field_description:done
+msgid "Done"
+msgstr "Done"
+
+# model:ir.model.fields,field_description:sequence
+msgid "Sequence"
+msgstr "Sequence"
+
+# model:ir.model.fields,field_description:active
+msgid "Active"
+msgstr "Active"
+
+
+#. module: dh_bk_lib.shelf_location
+#. odoo-python
+#: code:addons/dh_book_lib/models/dh_bk_lib.shelf_location.py:0
+#, python-format
+# model:ir.model.fields,field_description:name
+msgid "Name"
+msgstr "Name"
+
+# model:ir.model.fields,field_description:note
+msgid "Note"
+msgstr "Note"
+
+
+#. module: dh_bk_lib.book_category
+#. odoo-python
+#: code:addons/dh_book_lib/models/dh_bk_lib.book_category.py:0
+#, python-format
+# model:ir.model.fields,field_description:name
+msgid "Name"
+msgstr "Name"
+
+# model:ir.model.fields,field_description:note
+msgid "Note"
+msgstr "Note"
+
+
+#. module: dh_bk_lib.book
+#. odoo-python
+#: code:addons/dh_book_lib/models/dh_bk_lib.book.py:0
+#, python-format
+# model:ir.model.fields,field_description:name
+msgid "Name"
+msgstr "Name"
+
+# model:ir.model.fields,field_description:author
+msgid "Author"
+msgstr "Author"
+
+# model:ir.model.fields,field_description:year
+msgid "Year"
+msgstr "Year"
+
+# model:ir.model.fields,field_description:description
+msgid "Description"
+msgstr "Description"
+

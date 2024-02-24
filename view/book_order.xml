@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- tree view -->
+        <record id="view_dh_bk_lib_book_order_tree" model="ir.ui.view">
+            <field name="name">dh_bk_lib_book_order_tree</field>
+            <field name="model">dh_bk_lib.book_order</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Book Order">
+                    <field name="stage_is_draft" /> <!-- 1-->
+                    <field name="name" /> <!-- 100-->
+                    <field name="note" /> <!-- 101-->
+                    <field name="book_status_id" /> <!-- 101-->
+                    <field name="description" /> <!-- 102-->
+                    <field name="stage_id" /> <!-- 102-->
+                    <field name="approved" /> <!-- 103-->
+                    <field name="location_id" /> <!-- 103-->
+                    <field name="book_title_id" /> <!-- 104-->
+                </tree>
+            </field>
+        </record>
+        <!-- pivot view -->
+        <record id="view_dh_bk_lib_book_order_pivot" model="ir.ui.view">
+            <field name="name">dh_bk_lib_book_order_tree</field>
+            <field name="model">dh_bk_lib.book_order</field>
+            <field name="type">pivot</field>
+            <field name="arch" type="xml">
+                <pivot string="Book Order">
+                    <field name="book_status_id" type="row"/>
+                    <field name="stage_id" type="row"/>
+                    <field name="location_id" type="row"/>
+                    <field name="book_title_id" type="row"/>
+                </pivot>
+            </field>
+        </record>
+        <!-- form view -->
+        <record id="view_dh_bk_lib_book_order_form" model="ir.ui.view">
+            <field name="name">dh_bk_lib_book_order_form</field>
+            <field name="model">dh_bk_lib.book_order</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Book Order">
+                    <header>
+                        <button string="Confirm" type="object" name="action_confirm" class="oe_highlight"  />
+                        <button string="Cancel" type="object" name="action_cancel"  />
+                        <field name="stage_id" widget="statusbar" options="{'fold_field':'fold'}" />
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <!--button type="object" name="action_view_detail" class="oe_stat_button" icon="fa-pencil-square-o"-->
+                                <!--field name="detail_count" widget="statinfo" string="Detail(s)"/-->
+                                <!--field name="detail_ids" invisible="1"/-->
+                            <!--/button-->
+                        </div>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" string="Book Order Name"/>
+                            <h1><field name="name"/></h1>
+                        </div>
+                        <group>
+                            <group> <!-- left -->
+                                <field name="stage_is_draft"  />
+                                <field name="note"  attrs="{'readonly':[('stage_is_draft', '=', False)]}"/>
+                                <field name="description"  attrs="{'readonly':[('stage_is_draft', '=', False)]}"/>
+                                <field name="approved"  attrs="{'readonly':[('stage_is_draft', '=', False)]}"/>
+                            </group>
+                            <group> <!-- right -->
+                                <field name="book_status_id"  attrs="{'readonly':[('stage_is_draft', '=', False)]}"/>
+                                <field name="location_id"  attrs="{'readonly':[('stage_is_draft', '=', False)]}"/>
+                                <field name="book_title_id"  attrs="{'readonly':[('stage_is_draft', '=', False)]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="borrower_ids" string="Borrower">
+                                <field name="borrower_ids" attrs="{'readonly':[('stage_is_draft', '=', False)]}">
+                                    <tree >
+                                        <field name="name" /> <!-- 100-->
+                                        <field name="address" /> <!-- 101-->
+                                        <field name="approver_id" /> <!-- 101-->
+                                        <field name="note" /> <!-- 102-->
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <group name="note_group" col="6" class="mt-2 mt-md-0">
+                            <group colspan="4">
+                            </group>
+                            <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                            </group>
+                            <div class="clearfix"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- search -->
+        <record id="view_dh_bk_lib_book_order_search" model="ir.ui.view">
+            <field name="name">dh_bk_lib_book_order</field>
+            <field name="model">dh_bk_lib.book_order</field>
+            <field name="arch" type="xml">
+                <search string="Book Order">
+
+                    <filter string="Name" name="filter_by_name" domain="[('name','=','')]" />
+                    <filter string="Note" name="filter_by_note" domain="[('note','=','')]" />
+                    <filter string="Description" name="filter_by_description" domain="[('description','=','')]" />
+                    <filter string="Stage Is Draft" name="filter_by_stage_is_draft" domain="[('stage_is_draft','=','')]" />
+                    <filter string="Approved" name="filter_by_approved" domain="[('approved','=','')]" />
+                    <field name="name" select="True"/>
+                    <field name="note" select="True"/>
+                    <field name="description" select="True"/>
+                    <field name="stage_is_draft" select="True"/>
+                    <field name="approved" select="True"/>
+                    <field name="book_status_id" select="True"/>
+                    <field name="stage_id" select="True"/>
+                    <field name="location_id" select="True"/>
+                    <field name="book_title_id" select="True"/>
+                    <group string="Group By..">
+                        <filter string="Book Status" domain="[]" name="group_by_book_status_id" context="{'group_by':'book_status_id'}"/>
+                        <filter string="Stage" domain="[]" name="group_by_stage_id" context="{'group_by':'stage_id'}"/>
+                        <filter string="Location" domain="[]" name="group_by_location_id" context="{'group_by':'location_id'}"/>
+                        <filter string="Book Title" domain="[]" name="group_by_book_title_id" context="{'group_by':'book_title_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <!-- kanban , to show image, please add image_small in the model -->
+        <record id="view_dh_bk_lib_book_order_kanban" model="ir.ui.view" >
+            <field name="name">dh_bk_lib_book_order</field>
+            <field name="model">dh_bk_lib.book_order</field>
+            <field name="arch" type="xml">
+                <kanban version="7.0">
+                    <field name="id" />
+                    <field name="name" />
+                    <field name="note" />
+                    <field name="description" />
+                    <field name="stage_is_draft" />
+                    <field name="approved" />
+                    <field name="book_status_id" />
+                    <field name="stage_id" />
+                    <field name="location_id" />
+                    <field name="book_title_id" />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+                                <div class="oe_kanban_details">
+                                    <h4>
+                                        <a type="open"><field name="name"/></a>
+                                    </h4>
+                                    <ul>
+
+                                        <li>
+                                            <span class="text-muted">Book Status</span> <field name="book_status_id"></field>
+                                        </li>
+
+
+                                        <li>
+                                            <span class="text-muted">Stage</span> <field name="stage_id"></field>
+                                        </li>
+
+
+                                        <li>
+                                            <span class="text-muted">Location</span> <field name="location_id"></field>
+                                        </li>
+
+
+                                        <li>
+                                            <span class="text-muted">Book Title</span> <field name="book_title_id"></field>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <!-- graph -->
+        <record id="view_dh_bk_lib_book_order_graph" model="ir.ui.view">
+            <field name="name">dh_bk_lib_book_order</field>
+            <field name="model">dh_bk_lib.book_order</field>
+            <field name="arch" type="xml">
+                <graph string="Book Order" type="bar">
+                    <field name="book_status_id"/>
+                </graph>
+            </field>
+        </record>
+        <!-- action window -->
+        <record id="action_book_order" model="ir.actions.act_window">
+            <field name="name">Book Order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dh_bk_lib.book_order</field>
+            <field name="view_mode">tree,form,kanban,pivot,graph</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                Click to add a new Book Order
+                </p><p>
+                Click the Create button to add a new book_order record.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_book_order" name="Book Order" parent="dh_book_lib_sub_menu" action="action_book_order" sequence="20"/>
+    </data>
+</odoo>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- tree view -->
+        <record id="view_dh_bk_lib_book_tree" model="ir.ui.view">
+            <field name="name">dh_bk_lib_book_tree</field>
+            <field name="model">dh_bk_lib.book</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Book">
+                    <field name="name" /> <!-- 100-->
+                    <field name="category_id" /> <!-- 100-->
+                    <field name="author" /> <!-- 101-->
+                    <field name="year" /> <!-- 102-->
+                    <field name="description" /> <!-- 103-->
+                </tree>
+            </field>
+        </record>
+        <!-- pivot view -->
+        <record id="view_dh_bk_lib_book_pivot" model="ir.ui.view">
+            <field name="name">dh_bk_lib_book_tree</field>
+            <field name="model">dh_bk_lib.book</field>
+            <field name="type">pivot</field>
+            <field name="arch" type="xml">
+                <pivot string="Book">
+                    <field name="category_id" type="row"/>
+                </pivot>
+            </field>
+        </record>
+        <!-- form view -->
+        <record id="view_dh_bk_lib_book_form" model="ir.ui.view">
+            <field name="name">dh_bk_lib_book_form</field>
+            <field name="model">dh_bk_lib.book</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Book">
+                    <header>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <!--button type="object" name="action_view_detail" class="oe_stat_button" icon="fa-pencil-square-o"-->
+                                <!--field name="detail_count" widget="statinfo" string="Detail(s)"/-->
+                                <!--field name="detail_ids" invisible="1"/-->
+                            <!--/button-->
+                        </div>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" string="Book Name"/>
+                            <h1><field name="name"/></h1>
+                        </div>
+                        <group>
+                            <group> <!-- left -->
+                                <field name="author"  />
+                                <field name="year"  />
+                                <field name="description"  />
+                            </group>
+                            <group> <!-- right -->
+                                <field name="category_id"  />
+                            </group>
+                        </group>
+                        <group name="note_group" col="6" class="mt-2 mt-md-0">
+                            <group colspan="4">
+                            </group>
+                            <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                            </group>
+                            <div class="clearfix"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- search -->
+        <record id="view_dh_bk_lib_book_search" model="ir.ui.view">
+            <field name="name">dh_bk_lib_book</field>
+            <field name="model">dh_bk_lib.book</field>
+            <field name="arch" type="xml">
+                <search string="Book">
+
+                    <filter string="Name" name="filter_by_name" domain="[('name','=','')]" />
+                    <filter string="Author" name="filter_by_author" domain="[('author','=','')]" />
+                    <filter string="Year" name="filter_by_year" domain="[('year','=','')]" />
+                    <filter string="Description" name="filter_by_description" domain="[('description','=','')]" />
+                    <field name="name" select="True"/>
+                    <field name="author" select="True"/>
+                    <field name="year" select="True"/>
+                    <field name="description" select="True"/>
+                    <field name="category_id" select="True"/>
+                    <group string="Group By..">
+                        <filter string="Category" domain="[]" name="group_by_category_id" context="{'group_by':'category_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <!-- kanban , to show image, please add image_small in the model -->
+        <record id="view_dh_bk_lib_book_kanban" model="ir.ui.view" >
+            <field name="name">dh_bk_lib_book</field>
+            <field name="model">dh_bk_lib.book</field>
+            <field name="arch" type="xml">
+                <kanban version="7.0">
+                    <field name="id" />
+                    <field name="name" />
+                    <field name="author" />
+                    <field name="year" />
+                    <field name="description" />
+                    <field name="category_id" />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+                                <div class="oe_kanban_details">
+                                    <h4>
+                                        <a type="open"><field name="name"/></a>
+                                    </h4>
+                                    <ul>
+
+                                        <li>
+                                            <span class="text-muted">Category</span> <field name="category_id"></field>
+                                        </li>
+
+                                        <li>
+                                            <span class="text-muted">Year</span> <field name="year"></field>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <!-- calendar if a date field exists -->
+        <record id="view_dh_bk_lib_book_cal" model="ir.ui.view">
+            <field name="name">dh_bk_lib_book_cal</field>
+            <field name="model">dh_bk_lib.book</field>
+            <field name="arch" type="xml">
+                <calendar string="Book" date_start="year">
+                    <field name="name" />
+                </calendar>
+            </field>
+        </record>
+        <!-- graph -->
+        <record id="view_dh_bk_lib_book_graph" model="ir.ui.view">
+            <field name="name">dh_bk_lib_book</field>
+            <field name="model">dh_bk_lib.book</field>
+            <field name="arch" type="xml">
+                <graph string="Book" type="bar">
+                    <field name="category_id"/>
+                </graph>
+            </field>
+        </record>
+        <!-- action window -->
+        <record id="action_book" model="ir.actions.act_window">
+            <field name="name">Book</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dh_bk_lib.book</field>
+            <field name="view_mode">tree,form,kanban,pivot,calendar,graph</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                Click to add a new Book
+                </p><p>
+                Click the Create button to add a new book record.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_book" name="Book" parent="dh_book_lib_config_menu" action="action_book" sequence="90"/>
+    </data>
+</odoo>

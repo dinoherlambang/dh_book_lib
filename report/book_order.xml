@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- report qweb view -->
+        <record id="action_report_dh_bk_lib_book_order" model="ir.actions.report">
+            <field name="name">Book Order</field>
+            <field name="model">dh_bk_lib.book_order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">dh_book_lib.dh_bk_lib_book_order_report</field>
+            <field name="report_file">dh_book_lib.dh_bk_lib_book_order_report</field>
+            <field name="print_report_name">object.name</field>
+            <field name="binding_model_id" ref="dh_book_lib.model_dh_bk_lib_book_order"/>
+            <field name="binding_type">report</field>
+        </record>
+        <!-- document template -->
+        <template id="dh_book_lib.dh_bk_lib_book_order_report_document" >
+            <t t-call="web.external_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang': lang})"/>
+                <div class="page">
+                    <h2>
+                        Book Order: <span t-field="doc.name"/>
+                    </h2>
+                    <div class="row mt32 mb32">
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Note</strong>
+                            <p class="m-0" t-field="doc.note" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Description</strong>
+                            <p class="m-0" t-field="doc.description" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Stage Is Draft</strong>
+                            <p class="m-0" t-field="doc.stage_is_draft" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Approved</strong>
+                            <p class="m-0" t-field="doc.approved" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Book Status</strong>
+                            <p class="m-0" t-field="doc.book_status_id"/>
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Stage</strong>
+                            <p class="m-0" t-field="doc.stage_id"/>
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Location</strong>
+                            <p class="m-0" t-field="doc.location_id"/>
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Book Title</strong>
+                            <p class="m-0" t-field="doc.book_title_id"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="oe_structure"/>
+                <h2>Borrower</h2>
+                <table class="table table-sm o_main_table" name="borrower_ids_table">
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Address</td>
+                            <td>Note</td>
+                            <td>Book Order</td>
+                            <td>Approver</td>
+                        </tr>
+                    </thead>
+                    <tbody class="borrower_ids_tbody">
+                        <tr t-foreach="doc.borrower_ids" t-as="line">
+                            <td><span t-field="line.name" /></td>
+                            <td><span t-field="line.address" /></td>
+                            <td><span t-field="line.note" /></td>
+                            <td><span t-field="line.book_order_id" /></td>
+                            <td><span t-field="line.approver_id" /></td>
+                        </tr> <!-- foreach-->
+                    </tbody>
+                </table>
+                <div class="oe_structure"/>
+            </t>
+        </template>
+
+        <!-- main template -->
+        <template id="dh_book_lib.dh_bk_lib_book_order_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-set="lang" t-value="doc.create_uid.lang"/>
+                    <t t-call="dh_book_lib.dh_bk_lib_book_order_report_document" />
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

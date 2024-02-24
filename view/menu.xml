@@ -1,0 +1,7 @@
+<odoo>
+	<data>
+		<menuitem id="dh_book_lib_top_menu" name="Library Book Order" sequence="20" web_icon="dh_book_lib,static/description/icon.png" />
+		<menuitem id="dh_book_lib_sub_menu" name="Operations" sequence="40" parent="dh_book_lib_top_menu" />
+		<menuitem id="dh_book_lib_config_menu" name="Configurations" sequence="1000" parent="dh_book_lib_top_menu" />
+	</data>
+</odoo>
