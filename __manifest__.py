@@ -6,15 +6,13 @@
 	"depends": [
 		"base"
 	],
-	"author": "Akhmad Daniel Sembiring",
+	"author": "Dino Herlambang",
 	"category": "Utility",
-	"website": "http://vitraining.com",
+	"website": "http://instagram.com/_dinoherlambang_",
 	"images": [
 		"static/description/images/main_screenshot.jpg"
 	],
-	"price": "100",
 	"license": "OPL-1",
-	"currency": "USD",
 	"summary": "Library Book Management",
 	"description": "Application for Book Ordering in library",
 	"data": [
