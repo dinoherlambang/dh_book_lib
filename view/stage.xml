@@ -16,6 +16,8 @@
                     <field name="on_progress" /> <!-- 103-->
                     <field name="done" /> <!-- 104-->
                     <field name="active" /> <!-- 106-->
+                    <field name="execute_enter" /> <!-- 107-->
+                    <field name="is_a_stage" /> <!-- 108-->
                 </tree>
             </field>
         </record>
@@ -58,6 +60,8 @@
                                 <field name="done"  />
                                 <field name="sequence"  />
                                 <field name="active"  />
+                                <field name="execute_enter"  />
+                                <field name="is_a_stage"  />
                             </group>
                             <group> <!-- right -->
                             </group>
@@ -87,6 +91,8 @@
                     <filter string="Done" name="filter_by_done" domain="[('done','=','')]" />
                     <filter string="Sequence" name="filter_by_sequence" domain="[('sequence','=','')]" />
                     <filter string="Active" name="filter_by_active" domain="[('active','=','')]" />
+                    <filter string="Execute Enter" name="filter_by_execute_enter" domain="[('execute_enter','=','')]" />
+                    <filter string="Is A Stage" name="filter_by_is_a_stage" domain="[('is_a_stage','=','')]" />
                     <field name="name" select="True"/>
                     <field name="fold" select="True"/>
                     <field name="draft" select="True"/>
@@ -94,6 +100,8 @@
                     <field name="done" select="True"/>
                     <field name="sequence" select="True"/>
                     <field name="active" select="True"/>
+                    <field name="execute_enter" select="True"/>
+                    <field name="is_a_stage" select="True"/>
                     <group string="Group By..">
                     </group>
                 </search>
@@ -113,6 +121,8 @@
                     <field name="done" />
                     <field name="sequence" />
                     <field name="active" />
+                    <field name="execute_enter" />
+                    <field name="is_a_stage" />
                     <templates>
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click o_kanban_record_has_image_fill">

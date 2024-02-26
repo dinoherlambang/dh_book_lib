@@ -57,8 +57,8 @@ class book_order(models.Model):
     def unlink(self):
         return super(book_order, self).unlink()
 
-    borrower_ids = fields.One2many(comodel_name="dh_bk_lib.borrower",  inverse_name="book_order_id",  string=_("Borrower"))
     book_status_id = fields.Many2one(comodel_name="dh_bk_lib.book_status",  string=_("Book Status"))
     stage_id = fields.Many2one(comodel_name="dh_bk_lib.stage",  default=_get_first_stage,  string=_("Stage"))
     location_id = fields.Many2one(comodel_name="dh_bk_lib.shelf_location",  string=_("Location"))
     book_title_id = fields.Many2one(comodel_name="dh_bk_lib.book",  string=_("Book Title"))
+    borrower_ids = fields.One2many(comodel_name="dh_bk_lib.borrower",  inverse_name="book_order_id",  string=_("Borrower"))

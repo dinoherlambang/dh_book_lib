@@ -11,6 +11,7 @@
                 <tree string="Book Status">
                     <field name="name" /> <!-- 100-->
                     <field name="note" /> <!-- 101-->
+                    <field name="Status" /> <!-- 102-->
                 </tree>
             </field>
         </record>
@@ -48,6 +49,7 @@
                         <group>
                             <group> <!-- left -->
                                 <field name="note"  />
+                                <field name="Status"  />
                             </group>
                             <group> <!-- right -->
                             </group>
@@ -72,9 +74,12 @@
 
                     <filter string="Name" name="filter_by_name" domain="[('name','=','')]" />
                     <filter string="Note" name="filter_by_note" domain="[('note','=','')]" />
+                    <filter string="Status" name="filter_by_Status" domain="[('Status','=','')]" />
                     <field name="name" select="True"/>
                     <field name="note" select="True"/>
+                    <field name="Status" select="True"/>
                     <group string="Group By..">
+                        <filter string="Status" domain="[]" name="group_by_Status" context="{'group_by':'Status'}"/>
                     </group>
                 </search>
             </field>
@@ -88,6 +93,7 @@
                     <field name="id" />
                     <field name="name" />
                     <field name="note" />
+                    <field name="Status" />
                     <templates>
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click o_kanban_record_has_image_fill">

@@ -11,13 +11,13 @@
                 <tree string="Book Order">
                     <field name="stage_is_draft" /> <!-- 1-->
                     <field name="name" /> <!-- 100-->
+                    <field name="book_status_id" /> <!-- 100-->
                     <field name="note" /> <!-- 101-->
-                    <field name="book_status_id" /> <!-- 101-->
+                    <field name="stage_id" /> <!-- 101-->
                     <field name="description" /> <!-- 102-->
-                    <field name="stage_id" /> <!-- 102-->
+                    <field name="location_id" /> <!-- 102-->
                     <field name="approved" /> <!-- 103-->
-                    <field name="location_id" /> <!-- 103-->
-                    <field name="book_title_id" /> <!-- 104-->
+                    <field name="book_title_id" /> <!-- 103-->
                 </tree>
             </field>
         </record>

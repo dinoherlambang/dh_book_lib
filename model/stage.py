@@ -16,5 +16,7 @@ class stage(models.Model):
     done = fields.Boolean( string=_("Done"))
     sequence = fields.Integer( string=_("Sequence"))
     active = fields.Boolean( string=_("Active"), default=True)
+    execute_enter = fields.Char( string=_("Execute Enter"))
+    is_a_stage = fields.Boolean( string=_("Is A Stage"), default=True)
 
 

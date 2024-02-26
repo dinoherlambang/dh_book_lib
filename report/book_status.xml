@@ -25,6 +25,10 @@
                             <strong>Note</strong>
                             <p class="m-0" t-field="doc.note" />
                         </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Status</strong>
+                            <p class="m-0" t-field="doc.Status" />
+                        </div>
                     </div>
                 </div>
                 <div class="oe_structure"/>

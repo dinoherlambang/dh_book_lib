@@ -11,5 +11,6 @@ class book_status(models.Model):
 
     name = fields.Char( required=True, string=_("Name"))
     note = fields.Char( string=_("Note"))
+    Status = fields.Selection(selection=[("available","Available"),("borrowed","Borrowed")], string=_("Status"))
 
 
