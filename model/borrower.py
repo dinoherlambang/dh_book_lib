@@ -15,4 +15,3 @@ class borrower(models.Model):
 
 
     book_order_id = fields.Many2one(comodel_name="dh_bk_lib.book_order",  string=_("Book Order"))
-    approver_id = fields.Many2one(comodel_name="dh_bk_lib.approver",  string=_("Approver"))

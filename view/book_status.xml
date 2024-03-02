@@ -134,6 +134,6 @@
             </field>
         </record>
 
-        <menuitem id="menu_book_status" name="Book Status" parent="dh_book_lib_config_menu" action="action_book_status" sequence="50"/>
+        <menuitem id="menu_book_status" name="Book Status" parent="dh_book_lib_config_menu" action="action_book_status" sequence="40"/>
     </data>
 </odoo>

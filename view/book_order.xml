@@ -18,6 +18,7 @@
                     <field name="location_id" /> <!-- 102-->
                     <field name="approved" /> <!-- 103-->
                     <field name="book_title_id" /> <!-- 103-->
+                    <field name="approver_id" /> <!-- 105-->
                 </tree>
             </field>
         </record>
@@ -32,6 +33,7 @@
                     <field name="stage_id" type="row"/>
                     <field name="location_id" type="row"/>
                     <field name="book_title_id" type="row"/>
+                    <field name="approver_id" type="row"/>
                 </pivot>
             </field>
         </record>
@@ -70,6 +72,7 @@
                                 <field name="book_status_id"  attrs="{'readonly':[('stage_is_draft', '=', False)]}"/>
                                 <field name="location_id"  attrs="{'readonly':[('stage_is_draft', '=', False)]}"/>
                                 <field name="book_title_id"  attrs="{'readonly':[('stage_is_draft', '=', False)]}"/>
+                                <field name="approver_id"  attrs="{'readonly':[('stage_is_draft', '=', False)]}"/>
                             </group>
                         </group>
                         <notebook>
@@ -78,7 +81,6 @@
                                     <tree >
                                         <field name="name" /> <!-- 100-->
                                         <field name="address" /> <!-- 101-->
-                                        <field name="approver_id" /> <!-- 101-->
                                         <field name="note" /> <!-- 102-->
                                     </tree>
                                 </field>
@@ -116,11 +118,13 @@
                     <field name="stage_id" select="True"/>
                     <field name="location_id" select="True"/>
                     <field name="book_title_id" select="True"/>
+                    <field name="approver_id" select="True"/>
                     <group string="Group By..">
                         <filter string="Book Status" domain="[]" name="group_by_book_status_id" context="{'group_by':'book_status_id'}"/>
                         <filter string="Stage" domain="[]" name="group_by_stage_id" context="{'group_by':'stage_id'}"/>
                         <filter string="Location" domain="[]" name="group_by_location_id" context="{'group_by':'location_id'}"/>
                         <filter string="Book Title" domain="[]" name="group_by_book_title_id" context="{'group_by':'book_title_id'}"/>
+                        <filter string="Approver" domain="[]" name="group_by_approver_id" context="{'group_by':'approver_id'}"/>
                     </group>
                 </search>
             </field>
@@ -141,6 +145,7 @@
                     <field name="stage_id" />
                     <field name="location_id" />
                     <field name="book_title_id" />
+                    <field name="approver_id" />
                     <templates>
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
@@ -169,6 +174,11 @@
                                             <span class="text-muted">Book Title</span> <field name="book_title_id"></field>
                                         </li>
 
+                                        <!--
+                                        <li>
+                                            <span class="text-muted">Approver</span> <field name="approver_id"></field>
+                                        </li>
+                                        -->
                                     </ul>
                                 </div>
                             </div>

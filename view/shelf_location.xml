@@ -140,6 +140,6 @@
             </field>
         </record>
 
-        <menuitem id="menu_shelf_location" name="Shelf Location" parent="dh_book_lib_config_menu" action="action_shelf_location" sequence="70"/>
+        <menuitem id="menu_shelf_location" name="Shelf Location" parent="dh_book_lib_config_menu" action="action_shelf_location" sequence="60"/>
     </data>
 </odoo>

@@ -163,6 +163,6 @@
             </field>
         </record>
 
-        <menuitem id="menu_book" name="Book" parent="dh_book_lib_config_menu" action="action_book" sequence="90"/>
+        <menuitem id="menu_book" name="Book" parent="dh_book_lib_config_menu" action="action_book" sequence="80"/>
     </data>
 </odoo>

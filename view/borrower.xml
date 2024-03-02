@@ -12,7 +12,6 @@
                     <field name="name" /> <!-- 100-->
                     <field name="book_order_id" /> <!-- 100-->
                     <field name="address" /> <!-- 101-->
-                    <field name="approver_id" /> <!-- 101-->
                     <field name="note" /> <!-- 102-->
                 </tree>
             </field>
@@ -25,7 +24,6 @@
             <field name="arch" type="xml">
                 <pivot string="Borrower">
                     <field name="book_order_id" type="row"/>
-                    <field name="approver_id" type="row"/>
                 </pivot>
             </field>
         </record>
@@ -57,7 +55,6 @@
                             </group>
                             <group> <!-- right -->
                                 <field name="book_order_id"  />
-                                <field name="approver_id"  />
                             </group>
                         </group>
                         <group name="note_group" col="6" class="mt-2 mt-md-0">
@@ -85,10 +82,8 @@
                     <field name="address" select="True"/>
                     <field name="note" select="True"/>
                     <field name="book_order_id" select="True"/>
-                    <field name="approver_id" select="True"/>
                     <group string="Group By..">
                         <filter string="Book Order" domain="[]" name="group_by_book_order_id" context="{'group_by':'book_order_id'}"/>
-                        <filter string="Approver" domain="[]" name="group_by_approver_id" context="{'group_by':'approver_id'}"/>
                     </group>
                 </search>
             </field>
@@ -104,7 +99,6 @@
                     <field name="address" />
                     <field name="note" />
                     <field name="book_order_id" />
-                    <field name="approver_id" />
                     <templates>
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
@@ -116,11 +110,6 @@
 
                                         <li>
                                             <span class="text-muted">Book Order</span> <field name="book_order_id"></field>
-                                        </li>
-
-
-                                        <li>
-                                            <span class="text-muted">Approver</span> <field name="approver_id"></field>
                                         </li>
 
                                     </ul>

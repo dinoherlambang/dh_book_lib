@@ -53,6 +53,10 @@
                             <strong>Book Title</strong>
                             <p class="m-0" t-field="doc.book_title_id"/>
                         </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Approver</strong>
+                            <p class="m-0" t-field="doc.approver_id"/>
+                        </div>
                     </div>
                 </div>
                 <div class="oe_structure"/>
@@ -64,7 +68,6 @@
                             <td>Address</td>
                             <td>Note</td>
                             <td>Book Order</td>
-                            <td>Approver</td>
                         </tr>
                     </thead>
                     <tbody class="borrower_ids_tbody">
@@ -73,7 +76,6 @@
                             <td><span t-field="line.address" /></td>
                             <td><span t-field="line.note" /></td>
                             <td><span t-field="line.book_order_id" /></td>
-                            <td><span t-field="line.approver_id" /></td>
                         </tr> <!-- foreach-->
                     </tbody>
                 </table>

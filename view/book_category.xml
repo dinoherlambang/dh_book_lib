@@ -128,6 +128,6 @@
             </field>
         </record>
 
-        <menuitem id="menu_book_category" name="Book Category" parent="dh_book_lib_config_menu" action="action_book_category" sequence="80"/>
+        <menuitem id="menu_book_category" name="Book Category" parent="dh_book_lib_config_menu" action="action_book_category" sequence="70"/>
     </data>
 </odoo>
